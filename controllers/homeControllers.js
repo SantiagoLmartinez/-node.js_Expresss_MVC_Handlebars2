@@ -61,12 +61,6 @@ const editarURrl = async (req, res) =>{
     try {
         await Url.findByIdAndUpdate(id, {origin: origin})
         res.redirect('/')
-        // const url = await Url.findById(id).lean()
-        // if (!url) return res.send('no se encontro el documento')
-        // res.render('home', {url})
-        // console.log(url)
-        // res.redirect('/')
-
     } catch (error) {
         console.log(error)
         res.send("algo fallo al editar")
