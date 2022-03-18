@@ -1,0 +1,22 @@
+{{#if url}}
+<form action="/editar/{{url._id}}" method="post" class="">
+    <div class="mb-2 ">
+        <p class="lead text-center">Acortador de Links</p>
+        <input type="text" value="{{url.origin}}" name="origin" placeholder="Ingresar URL" class="form-control my-2">
+    </div>
+    <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-warning W-100">Editar URL</button>
+    </div>
+</form>
+
+{{else}}
+<form action="/" method="post" class="">
+    <div class="mb-2 ">
+        <p class="lead text-center">Acortador de Links</p>
+        <input type="text" name="origin" placeholder="Ingresar URL" class="form-control my-2">
+    </div>
+    <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-dark W-100">Agregar URL</button>
+    </div>
+</form>
+{{/if}}

@@ -1,7 +1,8 @@
 const express = require('express');
 // const { create } = require('express-handlebars');
 const { create } = require("express-handlebars");
-
+require('dotenv').config();
+require('./database/db');
 
 const app = express();
 
@@ -16,8 +17,9 @@ app.set("views", "./views");
 
 // middleware
 app.use(express.static(__dirname + "/public"))
+app.use(express.urlencoded({extended: true}))
 app.use('/', require('./routes/home'))
 app.use('/auth', require('./routes/auth'))
 
-
-app.listen(5000, () => console.log('Server On'))
+const PORT = process.env.PORT || 5000
+app.listen( PORT , () => console.log('Server On ' + PORT) )
